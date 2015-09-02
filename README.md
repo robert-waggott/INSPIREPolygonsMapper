@@ -1,33 +1,13 @@
 # INSPIRE Polygons Mapper
 
-This is a node script intended to making the downloading and mapping of land registry INSPIRE polygons as simple as possible. 
+This is intended as an example of how to use my [INSPIREPolygonsDownloader](https://github.com/robert-waggott/INSPIREPolygonsDownloader) node module. This can also be found on npm [here](https://www.npmjs.com/package/inspirepolygonsdownloader). 
 
-## Usage
+## Technologies
 
-The intended use is:
+(I'm intending to use the following technologies):
 
-```
-node mapper.js {Areas} {FromDate}
-```
-
-## Arguments
-
-### Areas
-
-* Type: Date
-* Format: 'Area1, Area2, Area3, Are4' 
-* Default value: null
-* Required: Yes
-
-Comma delimited list of areas which match the format of http://data.inspire.landregistry.gov.uk/{Area}.zip. 
-
-### FromDate
-
-* Type: Date
-* Format: 'YYYY-MM-DD' 
-* Default value: null
-* Required: No
-
-Filters the polygons down to only include polygons where the from date is equal to or after the passed in date. 
-
-[INSPIRE polygons](https://www.gov.uk/government/collections/download-inspire-index-polygons) conditions of use can be found [here](https://www.gov.uk/inspire-index-polygons-spatial-data#conditions-of-use).
+* [Express](https://www.npmjs.com/package/express)
+* [Jade](https://www.npmjs.com/package/jade)
+* [Stylus](https://github.com/learnboost/stylus)
+* [Leaflet](https://www.npmjs.com/package/leaflet)
+* [Mapbox](https://www.mapbox.com/mapbox.js/example/v1.0.0/plain-leaflet/)
