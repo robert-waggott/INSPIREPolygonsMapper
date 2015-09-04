@@ -1,0 +1,26 @@
+{
+  "name": "INSPIREPolygonsMapper",
+  "version": "1.0.0",
+  "description": "This is intended as an example of how to use my INSPIREPolygonsDownloader node module.",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robert-waggott/INSPIREPolygonsMapper.git"
+  },
+  "author": {
+    "name": "robert.waggott",
+    "email": "robert.waggott@gmail.com",
+    "url": "https://github.com/robert-waggott"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/robert-waggott/INSPIREPolygonsMapper/issues"
+  },
+  "homepage": "https://github.com/robert-waggott/INSPIREPolygonsMapper",
+  "dependencies": {
+    "express": "^4.13.3",
+    "morgan": "^1.6.1",
+    "nib": "^1.1.0",
+    "stylus": "^0.52.4"
+  }
+}
