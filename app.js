@@ -6,11 +6,24 @@ var stylus = require("stylus");
 
 var app = express();
 
+function compile(str, path) {
+	return stylus(str)
+    	.set("filename", path)
+    	.use(nib())
+}
+
 app.set("views", "./views");
 app.set("view engine", "jade");
-app.use(express.static("./public"));
+app.use("/css", express.static("./css"));
+app.use(express.static("./js"));
 
 app.use(morgan("combined"));
+
+app.use(stylus.middleware({ 
+	src: "./css", 
+	compile: compile
+  })
+);
 
 app.get("/", function(req, res) {
     res.render("map", { 
