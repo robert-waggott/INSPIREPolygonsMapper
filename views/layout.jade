@@ -1,0 +1,30 @@
+doctype
+html(lang="en")
+	head
+		title #{title}
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css')
+		link(rel='stylesheet', href='css/site.css')
+
+		block css
+
+		script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js')
+
+		block js
+	body
+		.container
+			header.row
+				h1.col-xs-12 INSPIRE Polygons Mapper
+			.row
+				.main-content.col-sm-9
+					block content
+				.side-bar.col-sm-3
+					block sidebar
+			footer.row
+				p.col-xs-12
+					| Written by 
+					a(href='https://github.com/robert-waggott') Robert Waggott (robert-waggott)
+					|. 
+					| Get the downloader 
+					a(href='https://github.com/robert-waggott/INSPIREPolygonsDownloader') here
+					|.
