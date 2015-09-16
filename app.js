@@ -34,9 +34,10 @@ app.get("/", function (req, res) {
 	})
 });
 
-app.get("/geojson/:area", function (req, res) {
+app.get("/geojson/:area/:fromdate", function (req, res) {
     var options = {
         areas: [req.params.area],
+        fromDate: req.params.fromdate,
         geoJson: true
     };  
     

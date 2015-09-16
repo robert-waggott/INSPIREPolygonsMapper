@@ -20,7 +20,7 @@
   "dependencies": {
     "colors": "^1.1.2",
     "express": "^4.13.3",
-    "inspirepolygonsdownloader": "^1.0.2",
+    "inspirepolygonsdownloader": "^1.0.5",
     "jade": "^1.11.0",
     "morgan": "^1.6.1",
     "nib": "^1.1.0",
