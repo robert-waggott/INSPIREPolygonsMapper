@@ -4,8 +4,6 @@ This is intended as an example of how to use my [INSPIREPolygonsDownloader](http
 
 ## Technologies
 
-(I'm intending to use the following technologies):
-
 * [Express](https://www.npmjs.com/package/express)
 * [Jade](https://www.npmjs.com/package/jade)
 * [Stylus](https://github.com/learnboost/stylus)
