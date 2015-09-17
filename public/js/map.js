@@ -6,7 +6,7 @@ $(function() {
 
     NProgress.start();
 
-	$.getJSON("/geojson/Adur/2015-08-01").done(function(geojson) {
+	$.getJSON("/inspire/Adur/2015-08-01").done(function(geojson) {
 		var layer = L.geoJson(geojson, {
 			style: {
 		    	"color": "#ff7800",
@@ -21,6 +21,11 @@ $(function() {
         				$("#inspire_id").html("<a target='_blank' href='https://eservices.landregistry.gov.uk/www/wps/portal/!ut/p/b1/04_SjzS0tDQwMTIxMjLXj9CPykssy0xPLMnMz0vMAfGjzOKNjSxMDA1NjDwsjM3MDTxN3dyNDUNMjQ1MjPWDU_P0c6McFQH3SLFU/'>" + feature.properties.id + "</a>");
         				$("#cadastral_ref").html(feature.properties.cadastralReference);
         				$("#valid_from").html(feature.properties.validFrom);
+
+        				$.getJSON("/inspire/" + feature.properties.id).done(function(inspireInfo) {
+							$("#address").html(inspireInfo.address);
+							$("#tenure").html(inspireInfo.tenure);
+        				});
         			}
 				});
 			}

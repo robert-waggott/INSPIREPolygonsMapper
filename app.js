@@ -4,6 +4,8 @@ var morgan = require("morgan");
 var nib = require("nib");
 var stylus = require("stylus");
 var downloader = require("inspirepolygonsdownloader")();
+var request = require("request");
+var cheerio = require("cheerio");
 
 var app = express();
 
@@ -34,7 +36,34 @@ app.get("/", function (req, res) {
 	})
 });
 
-app.get("/geojson/:area/:fromdate", function (req, res) {
+app.get("/inspire/:id", function (req, res) {
+    var id = req.params.id;
+    var post = {
+        url: "https://eservices.landregistry.gov.uk/www/wps/portal/!ut/p/b1/hY5LDoJAEETPwgl6vjBb0PCJzgAqCrMhJBKDCrggGOf0ijs1au8qea-qQUPBmMM5wQ6FHHRXjc2hGpq-q85T1nZJiWAYMxIKajso4n5A8YZTxCah-AEE-J-_gxyxcn0UF3kb8qWZjZujSYmcF1SajKi5NGpIkv12lXmupzJMGljX3cPTb9Wx76KIevEioClByP4AXrcF-QNMvz8B9OVcBCrs2xqKB-Z86xFbBq0-L9lpFV4PlnUHwJreEg!!/dl4/d5/L0lDU0lKSmdwcGlRb0tVUW9LVVEhL29Gb2dBRUlRaGpFQ1VJZ0FJQUl5RkFNaHdVaFM0SldsYTRvIS80RzNhRDJnanZ5aERVd3BNaFFqVW81Q2pHcHhBL1o3XzMyODQxMTQySDgzNjcwSTVGRzMxVDUzOFY0LzAvMzAzNzY1NDAyODUyL3NwZl9BY3Rpb25OYW1lL3NwZl9BY3Rpb25MaXN0ZW5lci9zcGZfc3RydXRzQWN0aW9uLyEyZlFEU2VhcmNoLmRv/", 
+        form: {
+            polygonId: id,
+            enquiryType: "lrInspireId"
+        }
+    };
+
+    request.post(post, function (error, response, html) {
+        if (error) {
+            res.status(500).send(JSON.stringify(error));
+            return;
+        }
+
+        var $ = cheerio.load(html);
+        var elements = $("div.wpsPortletBody div.portletContent div.w80p");
+        var output = {
+            address: elements.first().html().trim(),
+            tenure: elements.last().html().trim()
+        };
+
+        res.send(JSON.stringify(output));
+    });
+});
+
+app.get("/inspire/:area/:fromdate", function (req, res) {
     var options = {
         areas: [req.params.area],
         fromDate: req.params.fromdate,
