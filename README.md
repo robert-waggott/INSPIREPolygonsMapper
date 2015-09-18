@@ -2,6 +2,16 @@
 
 This is intended as an example of how to use my [INSPIREPolygonsDownloader](https://github.com/robert-waggott/INSPIREPolygonsDownloader) node module. This can also be found on npm [here](https://www.npmjs.com/package/inspirepolygonsdownloader). 
 
+## How to run
+
+Run
+
+```
+node app.js
+```
+
+And then navigate to `http://localhost:3000`.
+
 ## Technologies
 
 * [Express](https://www.npmjs.com/package/express)
