@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/robert-waggott/INSPIREPolygonsMapper",
   "dependencies": {
+    "apicache": "0.0.12",
     "cheerio": "^0.19.0",
     "colors": "^1.1.2",
     "express": "^4.13.3",

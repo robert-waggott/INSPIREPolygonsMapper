@@ -1,3 +1,4 @@
+var apicache = require('apicache').options({ debug: true }).middleware;
 var colors = require("colors");
 var express = require("express");
 var morgan = require("morgan");
@@ -36,7 +37,7 @@ app.get("/", function (req, res) {
 	})
 });
 
-app.get("/inspire/:id", function (req, res) {
+app.get("/inspire/:id", apicache("15 minutes"), function (req, res) {
     var id = req.params.id;
     var post = {
         url: "https://eservices.landregistry.gov.uk/www/wps/portal/!ut/p/b1/hY5LDoJAEETPwgl6vjBb0PCJzgAqCrMhJBKDCrggGOf0ijs1au8qea-qQUPBmMM5wQ6FHHRXjc2hGpq-q85T1nZJiWAYMxIKajso4n5A8YZTxCah-AEE-J-_gxyxcn0UF3kb8qWZjZujSYmcF1SajKi5NGpIkv12lXmupzJMGljX3cPTb9Wx76KIevEioClByP4AXrcF-QNMvz8B9OVcBCrs2xqKB-Z86xFbBq0-L9lpFV4PlnUHwJreEg!!/dl4/d5/L0lDU0lKSmdwcGlRb0tVUW9LVVEhL29Gb2dBRUlRaGpFQ1VJZ0FJQUl5RkFNaHdVaFM0SldsYTRvIS80RzNhRDJnanZ5aERVd3BNaFFqVW81Q2pHcHhBL1o3XzMyODQxMTQySDgzNjcwSTVGRzMxVDUzOFY0LzAvMzAzNzY1NDAyODUyL3NwZl9BY3Rpb25OYW1lL3NwZl9BY3Rpb25MaXN0ZW5lci9zcGZfc3RydXRzQWN0aW9uLyEyZlFEU2VhcmNoLmRv/", 
@@ -63,7 +64,7 @@ app.get("/inspire/:id", function (req, res) {
     });
 });
 
-app.get("/inspire/:area/:fromdate", function (req, res) {
+app.get("/inspire/:area/:fromdate", apicache("15 minutes"), function (req, res) {
     var options = {
         areas: [req.params.area],
         fromDate: req.params.fromdate,
