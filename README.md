@@ -1,5 +1,7 @@
 # INSPIRE Polygons Mapper
 
+*This is for private use only. See the INSPIRE [Conditions of use](https://www.gov.uk/guidance/inspire-index-polygons-spatial-data#conditions-of-use) before using.*
+
 This is intended as an example of how to use my [INSPIREPolygonsDownloader](https://github.com/robert-waggott/INSPIREPolygonsDownloader) node module. This can also be found on npm [here](https://www.npmjs.com/package/inspirepolygonsdownloader). 
 
 ## How to run
